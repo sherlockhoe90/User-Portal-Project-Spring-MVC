@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.inexture.userportal.userportalproject.model.User" table="userportal_users">
+        <id name="userId" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="userRole" type="string">
+            <column name="role" default="user"></column>
+        </property>
+        <property name="userFirstname" column="firstname"/>
+        <property name="userMiddlename" column="middlename"/>
+        <property name="userLastname" column="lastname"/>
+        <property name="userEmailID" column="emailid"/>
+        <property name="userUsername" column="username"/>
+        <property name="userPassword" column="password"/>
+        <property name="userAge" column="age"/>
+        <property name="userDOB" column="dob"/>
+        <property name="userHobbies" column="hobbies"/>
+        <property name="isAdmin" type="integer">
+            <column name="isAdmin" default="0" />
+        </property>
+<!--        <set name="userId" inverse="true">-->
+<!--            <key column="id" not-null="true"/>-->
+<!--            <one-to-many class="com.inexture.userportal.userportalproject.model.User"/>-->
+<!--        </set>-->
+        <list name="addressList" cascade="all" lazy="false">
+            <key column="userid"></key>
+            <index column="addressid"></index>
+            <one-to-many class="com.inexture.userportal.userportalproject.model.Address"/>
+        </list>
+
+    </class>
+</hibernate-mapping>

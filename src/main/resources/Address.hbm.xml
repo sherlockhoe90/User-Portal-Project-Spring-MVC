@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.inexture.userportal.userportalproject.model.Address" table="userportal_addresses">
+        <id name="SrNo" column="srno">
+            <generator class="native"/>
+        </id>
+<!--        <many-to-one name="addUserID"-->
+<!--                     class="com.inexture.userportal.userportalproject.model.Address"-->
+<!--                     column="userid"-->
+<!--                     cascade="save-update">-->
+<!--        </many-to-one>-->
+
+        <property name="addHouseNo" column="houseno" />
+        <property name="addId" column="addressid" />
+        <property name="addStreet" column="street"/>
+        <property name="addCity" column="city"/>
+        <property name="addState" column="state"/>
+        <property name="addCountry" column="country"/>
+        <property name="addZipcode" column="zip_code"/>
+        <property name="addLandmark" column="landmark"/>
+        <property name="addPostalAdd" column="postaladdress"/>
+
+        <many-to-one name="addUserObject" class="com.inexture.userportal.userportalproject.model.User" column="userid" />
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!--
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/hibernate-configuration"
+                         xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration
+                                            http://www.hibernate.org/xsd/hibernate-configuration/hibernate-configuration-4.0.xsd"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+-->
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!--MySQL Connector/J properties: useSSL (encrypts the exchange between JDBC Driver, and the server),
+        and autoReconnect (reconnects to the db if connection dropped and send the statement again.-->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost/inexturesolutionstraining_16_08_2023
+        </property>
+        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost/inexturesolutionstraining_16_08_2023?autoReconnect=true&useSSL=false</property> (nOT WORKING FOR SOME REASON)-->
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+<!--        <property name="hibernate.archive.autodetection">class</property>-->
+                <mapping resource="User.hbm.xml"/>
+                <mapping resource="Address.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
