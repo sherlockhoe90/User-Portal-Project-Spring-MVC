@@ -17,7 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@Controller("/logout")
+@RequestMapping("LogoutController")
+@Controller
 public class LogoutController {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = LogManager.getLogger("LogoutController");

@@ -38,7 +38,6 @@
     <link rel="stylesheet" href="./assets/css/header_and_footer.css"> <%--custom css for login--%>
     <link rel="stylesheet" href="./assets/css/CDN/bootstrap_3.3.7.css"> <%--bootstrap css--%>
     <link rel="stylesheet" href="./assets/css/css_login.css"> <%--custom css for login--%>
-    <script type="text/javascript" src="assets/js/loginValidation.js"></script>
 
 </head>
 <body>
@@ -84,6 +83,14 @@
 
     </form>
 </div>
+
+<script src="./assets/js/CDNs/jquery_1.9.1.js"></script>
+<script src="./assets/js/CDNs/code.jquery.com_jquery-3.4.1.js"></script>
+<script src="./assets/js/CDNs/code.jquery.com_jquery-1.12.4.js"></script>
+<script src="./assets/js/CDNs/http_code.jquery.com_jquery-3.6.0.js"></script>
+
+<script type="text/javascript" src="assets/js/loginValidation.js"></script>
+
 </body>
 </html>
 

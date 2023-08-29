@@ -21,7 +21,8 @@ import java.sql.SQLException;
  * IF THE PARAMETER IS EQUAL TO comingFromExists THEN IT WON'T CHECK THE EMAIL AGAIN,
  * IT'LL GO STRAIGHT TO VERIFYING THE VERIFICATION CODE */
 
-@Controller("/ForgotPassword")
+@Controller
+@RequestMapping("forgotPassword")
 public class ForgotPasswordController {
 
     private static final long serialVersionUID = 1L;

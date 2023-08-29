@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class AddressServiceImp implements AddressService {
-    private static Logger logger = LogManager.getLogger("UserLoginController");
+    private static final Logger logger = LogManager.getLogger("UserLoginController");
 
     private SessionFactory sessionFactory = HibernateUtility.getSessionFactory();
     AddressDAO addressdao = new AddressDAOImp();
@@ -23,7 +23,6 @@ public class AddressServiceImp implements AddressService {
     public void addAddress(int userId, Address address) {
         logger.info("calling the add-address method from AddressServiceImp.");
         addressdao.addAddress(userId, address);
-
     }
 
     @Override
@@ -37,3 +36,4 @@ public class AddressServiceImp implements AddressService {
     }
 
 }
+

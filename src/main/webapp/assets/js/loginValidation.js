@@ -8,27 +8,19 @@ $(document).ready(function() {
 	var email_error = false;
 	var password_error = false;
 
-	$("#emailid_from_login").focusout(function() {
-		// $("#email_error").hide();
-		$("#emailid_from_login").css("border", "1px solid #ced4da");
-		check_email();
-	});
+
 	$("#emailid_from_login").keyup(function() {
 		check_email();
 	});
-	$("#emailid_from_login").focus(function() {
+	$("#emailid_from_login").keydown(function() {
 		check_email();
 	});
 
-	$("#password_from_login").focusout(function() {
-		// $("#password_error").hide();
-		$("#pwd").css("border", "1px solid #ced4da");
-		check_password();
-	});
+
 	$("#password_from_login").keyup(function() {
 		check_password();
 	});
-	$("#password_from_login").focus(function() {
+	$("#password_from_login").keydown(function() {
 		check_password();
 	});
 

@@ -8,10 +8,15 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="userServiceObject" class="com.inexture.userportal.userportalproject.services.UserServiceImp" />
+<!--    <bean id="userServiceObject" class="com.inexture.userportal.userportalproject.services.UserServiceImp" />-->
+<!--    <bean id="addressServiceObject" class="com.inexture.userportal.userportalproject.services.AddressServiceImp" />-->
+<!--    <bean id="user" class="com.inexture.userportal.userportalproject.model.User" />-->
+<!--    <bean id="address" class="com.inexture.userportal.userportalproject.model.Address" />-->
+<!--    <bean id="userDAO" class="com.inexture.userportal.userportalproject.dao.UserDAOImp" />-->
+<!--    <bean id="addressDAO" class="com.inexture.userportal.userportalproject.dao.AddressDAOImp" />-->
 
     <mvc:annotation-driven/>
+    <context:annotation-config/>
     <context:component-scan base-package="com.inexture.userportal.userportalproject" />
-
 
 </beans>

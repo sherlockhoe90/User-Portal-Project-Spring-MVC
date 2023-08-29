@@ -8,9 +8,12 @@ import org.hibernate.Transaction;
 
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
+
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class AddressDAOImp implements AddressDAO {
 
     SessionFactory sessionFactory = HibernateUtility.getSessionFactory();

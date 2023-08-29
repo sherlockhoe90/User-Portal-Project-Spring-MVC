@@ -38,18 +38,47 @@
 <!--    </filter-mapping>-->
 
 
-    <error-page>
-        <!-- <error-code>500</error-code> -->
-        <!-- <exception-type>java.lang.Exception</exception-type> -->
-        <location>/errorPage.jsp</location>
-    </error-page>
+<!--    adding the below code to fix the website not loading properly, no css or js, just plain text and blue links.-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpeg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.webp</url-pattern>
+    </servlet-mapping>
+<!--    <error-page>-->
+<!--        &lt;!&ndash; <error-code>500</error-code> &ndash;&gt;-->
+<!--        &lt;!&ndash; <exception-type>java.lang.Exception</exception-type> &ndash;&gt;-->
+<!--        <location>/errorPage.jsp</location>-->
+<!--    </error-page>-->
 
 
 
 
 
     <servlet>
-        <servlet-name>Spring-Rest-FrontController</servlet-name>
+        <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -59,7 +88,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Spring-Rest-FrontController</servlet-name>
+        <servlet-name>springmvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

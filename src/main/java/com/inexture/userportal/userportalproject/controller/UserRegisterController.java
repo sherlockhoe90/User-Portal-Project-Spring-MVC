@@ -27,7 +27,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @MultipartConfig
-@Controller("/UserRegister")
+@RequestMapping("RegistrationController")
+@Controller
 public class UserRegisterController {
 
     private static final long serialVersionUID = 1L;

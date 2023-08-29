@@ -19,13 +19,17 @@ import com.inexture.userportal.userportalproject.utility.HibernateUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.springframework.web.bind.annotation.RestController;
 
-public class ViewUserDetailsController extends HttpServlet {
+@RestController
+public class ViewUserDetailsController {
+
+    HttpServletRequest request;
+    HttpServletResponse response;
 
     private static final long serialVersionUID = 1L;
     private static Logger logger = LogManager.getLogger("UserLoginController");
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 //            int currentPage = 1;
@@ -73,7 +77,6 @@ public class ViewUserDetailsController extends HttpServlet {
         }
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("doPOST method called, but it shouldn't be.\nThe doGET should've been called using the new ajax setting.");
     }

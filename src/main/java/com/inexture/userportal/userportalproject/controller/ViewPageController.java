@@ -5,12 +5,14 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@Controller("/viewuserdetails")
+@RequestMapping("view-page")
+@RestController
 public class ViewPageController {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = LogManager.getLogger("ViewPageController");
