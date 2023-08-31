@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 //@Table(name = "userportal_addresses")
-public class Address implements Serializable {
+public class Address  {
     /* By implementing the Serializable interface, you are telling Java that instances of these classes can be
      safely serialized and deserialized, which prevents potential issues when storing them in the session.
 

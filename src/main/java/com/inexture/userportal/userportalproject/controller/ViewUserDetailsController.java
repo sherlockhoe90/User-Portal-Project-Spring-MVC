@@ -19,8 +19,10 @@ import com.inexture.userportal.userportalproject.utility.HibernateUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping("/viewuserdetails")
 @RestController
 public class ViewUserDetailsController {
 

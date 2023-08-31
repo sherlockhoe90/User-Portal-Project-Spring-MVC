@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@RequestMapping("adminEditController")
+@RequestMapping("/AdminEdit")
 @Controller
 public class AdminEditController extends HttpServlet {
     private static final long serialVersionUID = 1L;

@@ -23,8 +23,8 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+@RequestMapping("/UpdateProfile")
 @MultipartConfig
-@RequestMapping("UpdateController")
 @Controller
 public class UpdateProfileController {
     private static final long serialVersionUID = 1L;
@@ -42,7 +42,7 @@ public class UpdateProfileController {
 
     @RequestMapping(method = RequestMethod.GET)
     public void doGet(@ModelAttribute("modelAttributeObject") User user,
-                      @RequestParam("hosueno[]") String[] houseno, @RequestParam("address[]") String[] street,
+                      @RequestParam("houseno[]") String[] houseno, @RequestParam("address[]") String[] street,
                       @RequestParam("landmark[]") String[] landmark, @RequestParam("zipcode[]") String[] zipcode,
                       @RequestParam("city[]") String[] city, @RequestParam("state[]") String[] state,
                       @RequestParam("country[]") String[] country, @RequestParam("postaladdress[]") String[] postaladdress) {
@@ -51,7 +51,7 @@ public class UpdateProfileController {
 
     @RequestMapping(method = RequestMethod.POST)
     public void updateMethod(@ModelAttribute("modelAttributeObject") User modelAttributeUser,
-                             @RequestParam("hosueno[]") String[] houseno, @RequestParam("address[]") String[] street,
+                             @RequestParam("houseno[]") String[] houseno, @RequestParam("address[]") String[] street,
                              @RequestParam("landmark[]") String[] landmark, @RequestParam("zipcode[]") String[] zipcode,
                              @RequestParam("city[]") String[] city, @RequestParam("state[]") String[] state,
                              @RequestParam("country[]") String[] country, @RequestParam("postaladdress[]") String[] postaladdress) {

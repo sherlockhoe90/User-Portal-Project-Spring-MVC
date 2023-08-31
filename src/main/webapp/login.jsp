@@ -74,7 +74,7 @@
             </div>
         </div>
         <p class="text-center">New user? You can
-        <a href="registration.jsp">Register here!</a>
+        <a href="UserRegister">Register here!</a>
         </p>
         <br>
         <p class="text-center">Forgot Password? You can get a new one

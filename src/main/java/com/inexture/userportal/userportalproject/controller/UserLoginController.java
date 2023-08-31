@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
-//@RequestMapping("/LoginController")
+//@RequestMapping("/UserLogin") mapped directly to the method below
 @Controller
 public class UserLoginController {
     private static final Logger logger = LogManager.getLogger(UserLoginController.class);
@@ -30,9 +30,10 @@ public class UserLoginController {
     AddressService addressService;
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView userLogin(@ModelAttribute("modelAttributeObject") User user, HttpSession session) {
+    @RequestMapping(value = "/UserLogin", method = RequestMethod.POST)
+    public ModelAndView userLogin(@ModelAttribute User user, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
+
 
         modelAndView.setViewName("login.jsp"); //default view in case of authentication failure
 
@@ -67,7 +68,8 @@ public class UserLoginController {
                     modelAndView.setViewName("userHomePage.jsp");
                 }
             } else {
-                modelAndView.addObject("authenticationStatus", "wrong");
+                modelAndView.setViewName("login.jsp?authenticationStatus=wrong");
+//                modelAndView.addObject("authenticationStatus", "wrong");
             }
         } catch (SQLException e) {
             e.printStackTrace();

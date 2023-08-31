@@ -1,6 +1,6 @@
 package com.inexture.userportal.userportalproject.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 //@Table(name = "userportal_users")
-public class User implements Serializable {
+public class User {
     /** By implementing the Serializable interface, you are telling Java that instances of these classes can be
      safely serialized and deserialized, which prevents potential issues when storing them in the session.
 
@@ -31,12 +31,10 @@ public class User implements Serializable {
     private int userAge;
     private String userDOB;
     private String userHobbies;
-    private transient InputStream userProfile;
-    private String base64Image;
     private transient FileInputStream defaultProfile;
     private Boolean userStatus;
     private int isAdmin;
-
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Address> addressList;
 
 
@@ -156,7 +154,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User [userId=" + userId + ", userFirstname=" + userFirstname + ", userMiddlename=" + userMiddlename + ", userLastname=" + userLastname + ", userEmail=" + userEmailID + ", userUsername=" + userUsername +", userPassword="
-                + userPassword + ", userHobby=" + userHobbies + ", userDOB=" + userDOB + ", userAge =" + userAge + ", userProfile=" + userProfile + ", defaultProfile="
+                + userPassword + ", userHobby=" + userHobbies + ", userDOB=" + userDOB + ", userAge =" + userAge + ", defaultProfile="
                 + defaultProfile + ", userStatus=" + userStatus + "]";
     }
 

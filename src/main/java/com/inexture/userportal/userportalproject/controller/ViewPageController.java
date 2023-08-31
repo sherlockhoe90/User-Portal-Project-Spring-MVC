@@ -11,7 +11,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@RequestMapping("view-page")
+@RequestMapping("/view-page")
 @RestController
 public class ViewPageController {
     private static final long serialVersionUID = 1L;

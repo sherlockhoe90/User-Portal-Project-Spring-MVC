@@ -145,28 +145,60 @@ $(document).ready(function () {
         // $("#dob_error").hide();
     });
 
+    var currentIndex = 0;
 
-    $('a#add-more').cloneData({
-        mainContainerId: 'main-container', // Main container Should be ID
-        cloneContainer: 'container-item', // Which you want to clone
-        removeButtonClass: 'remove-item', // Remove button for remove cloned HTML
-        removeConfirm: true, // default true confirm before delete clone item
-        removeConfirmMessage: 'Are you sure want to delete?', // confirm delete message
-        //append: '<a href="javascript:void(0)" class="remove-item btn btn-sm btn-danger remove-social-media">Remove</a>', // Set extra HTML append to clone HTML
-        minLimit: 1, // Default 1 set minimum clone HTML required
-        /* 			maxLimit : 5, // Default unlimited or set maximum limit of clone HTML
-         */
-        defaultRender: 1,
-        afterRender: function () {
+    $('a#add-more').click(function() {
 
-            for (var i = 0; i < $(".container-item").length; i++) {
-                var selector = `.container-item[data-index="${i}"]`;
+        clonedSection();
 
-                setAllCallbacks(selector);
+        function clonedSection() {
+        $(this).cloneData({
+            mainContainerId: 'main-container',
+            cloneContainer: 'container-item',
+            removeButtonClass: 'remove-item',
+            removeConfirm: true,
+            removeConfirmMessage: 'Are you sure want to delete?',
+            minLimit: 1,
+            defaultRender: 1,
+            afterRender: function () {
+                currentIndex++;
 
-            }
-        },
+                for (let i = 0; i < $(".container-item").length; i++) {
+                    let selector = `.container-item[data-index="${i}"]`;
+
+                    setAllCallbacks(selector);
+
+                    $(selector).find('.city')
+                        .attr('name', `city[${currentIndex}]`)
+                        .attr('path', `city[${currentIndex}]`); // Update path attribute
+                    $(selector).find('.state')
+                        .attr('name', `state[${currentIndex}]`)
+                        .attr('path', `state[${currentIndex}]`); // Update path attribute
+                    $(selector).find('.houseno')
+                        .attr('name', `houseno[${currentIndex}]`)
+                        .attr('path', `houseno[${currentIndex}]`);
+                    $(selector).find('.country')
+                        .attr('name', `country[${currentIndex}]`)
+                        .attr('path', `country[${currentIndex}]`);
+                    $(selector).find('.landmark')
+                        .attr('name', `landmark[${currentIndex}]`)
+                        .attr('path', `landmark[${currentIndex}]`);
+                    $(selector).find('.pincode')
+                        .attr('name', `zipcode[${currentIndex}]`)
+                        .attr('path', `zipcode[${currentIndex}]`);
+                    $(selector).find('.address')
+                        .attr('name', `address[${currentIndex}]`)
+                        .attr('path', `address[${currentIndex}]`);
+                    $(selector).find('.postaladdress')
+                        .attr('name', `postaladdress[${currentIndex}]`)
+                        .attr('path', `postaladdress[${currentIndex}]`);
+                }
+            },
+        });
+    }
+        return false; // Prevent default link behavior
     });
+
 
     //Address field validation
     var defaultSelector = '.container-item[data-index="0"]';
@@ -175,57 +207,34 @@ $(document).ready(function () {
     function setAllCallbacks(selector) {
 
         //street
-        $(selector + " #street").focusout(function () {
-            // $(selector + " #street_error").hide();
-            // $(selector + " #street").css("border-bottom", "1px solid #ccc");
-            check_street(selector);
-        });
         $(selector + " #street").keyup(function () {
             check_street(selector);
         });
-        $(selector + " #street").focus(function () {
+        $(selector + " #street").keydown(function () {
             check_street(selector);
         });
 
         //pincode
-        $(selector + " #pincode").focusout(function () {
-            // $(selector + " #pincode_error").hide();
-            // $(selector + " #pincode").css("border-bottom", "1px solid #ccc");
-            check_pincode(selector);
-
-        });
         $(selector + " #pincode").keyup(function () {
             check_pincode(selector);
         });
-        $(selector + " #pincode").focus(function () {
+        $(selector + " #pincode").keydown(function () {
             check_pincode(selector);
         });
 
         //landmark
-        $(selector + " #landmark").focusout(function () {
-            // $(selector + " #landmark_error").hide();
-            // $(selector + " #landmark").css("border-bottom", "1px solid #ccc");
-            check_landmark(selector);
-
-        });
         $(selector + " #landmark").keyup(function () {
             check_landmark(selector);
         });
-        $(selector + " #landmark").focus(function () {
+        $(selector + " #landmark").keydown(function () {
             check_landmark(selector);
         });
 
         //house-no.
-        $(selector + " #houseno").focusout(function () {
-            // $(selector + " #houseno_error").hide();
-            // $(selector + " #houseno").css("border-bottom", "1px solid #ccc");
-            check_houseno(selector);
-
-        });
         $(selector + " #houseno").keyup(function () {
             check_houseno(selector);
         });
-        $(selector + " #houseno").focus(function () {
+        $(selector + " #houseno").keydown(function () {
             check_houseno(selector);
         });
 
@@ -237,7 +246,6 @@ $(document).ready(function () {
         $(selector + " #city").focusout(function () {
             // $(selector + " #city_error").hide();
             //check_city(defaultSelector);
-
         });
 
         //state

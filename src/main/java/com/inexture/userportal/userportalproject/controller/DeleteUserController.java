@@ -15,7 +15,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@RequestMapping("DeleteUserController")
+@RequestMapping("/DeleteUser")
 @RestController
 public class DeleteUserController {
 
