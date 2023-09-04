@@ -29,6 +29,12 @@ public class UserLoginController {
     @Autowired
     AddressService addressService;
 
+    @RequestMapping(value = "/UserLogin", method = RequestMethod.GET)
+    public ModelAndView userRegister(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login.jsp");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/UserLogin", method = RequestMethod.POST)
     public ModelAndView userLogin(@ModelAttribute User user, HttpSession session) {

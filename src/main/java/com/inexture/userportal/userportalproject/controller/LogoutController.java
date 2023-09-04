@@ -30,8 +30,28 @@ public class LogoutController {
     protected ModelAndView doGet(HttpServletRequest request) {
         doPost(request);
         logger.info("LogoutController.java : doGet was called in Sequence " + ++callSequence);
-        return new ModelAndView("login.jsp");
-    }
+
+        // to invalidate the session
+        HttpSession session = request.getSession(false); // get the existing session
+
+        assert session != null; //to avoid a null-pointer exception
+        session.setAttribute("userRole", null); //login.jsp checks for this
+        logger.info("value of userRole : " + session.getAttribute("userRole"));
+        session.removeAttribute("userRole");
+        logger.info("value of userRole : " + session.getAttribute("userRole"));
+        session.invalidate(); //removes session from the registry
+
+        ModelAndView modelAndView = new ModelAndView("login.jsp");
+        modelAndView.addObject("userRole", null);
+
+        //setting the values of response object and setHeader methods into the modelAndView.addObject() methodsy
+        modelAndView.addObject("Cache-Control", "no-cache");
+        modelAndView.addObject("Cache-Control", "no-store");
+        modelAndView.addObject("Cache-Control", "no-cache, no-store, must-revalidate");
+        modelAndView.addObject("Expires", 0);
+        modelAndView.addObject("Pragma", "no-cache");
+
+        return modelAndView;    }
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView doPost(HttpServletRequest request) {

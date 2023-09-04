@@ -38,94 +38,93 @@ $(document).ready(function () {
     //var selector;
 
     //Other field validation
-    $("#firstname").focusout(function () {
+    $("#userFirstname").focusout(function () {
         // $("#firstname_error").hide();
         // $("#firstname").css("border-bottom", "none");
     });
-    $("#firstname").keyup(function () {
+    $("#userFirstname").keyup(function () {
         check_name();
     });
-    $("#firstname").focus(function () {
+    $("#userFirstname").focus(function () {
         check_name();
     });
 
 
-    $("#middlename").focusout(function () {
+    $("#userMiddlename").focusout(function () {
         // $("#middlename_error").hide();
         // $("#middlename").css("border-bottom", "none");
     });
-    $("#middlename").keyup(function () {
+    $("#userMiddlename").keyup(function () {
         check_middlename();
     });
-    $("#middlename").focus(function () {
+    $("#userMiddlename").focus(function () {
         check_middlename();
     });
 
 
-    $("#lastname").focusout(function () {
+    $("#userLastname").focusout(function () {
         // $("#lastname_error").hide();
         // $("#lastname").css("border-bottom", "none");
     });
-    $("#lastname").keyup(function () {
+    $("#userLastname").keyup(function () {
         check_lastname();
     });
-    $("#lastname").focus(function () {
+    $("#userLastname").focus(function () {
         check_lastname();
     });
 
-    $("#emailid").focusout(function () {
-        // $("#email_error").hide();
-        // $("#mail").css("border-bottom", "none");
-    });
-    $("#emailid").keyup(function () {
+
+    $("#userEmailID").keyup(function () {
         check_email();
     });
-    $("#emailid").focus(function () {
+    $("#userEmailID").keydown(function () {
         check_email();
     });
 
-    $("#pwd").focusout(function () {
-        // $("#password_error").hide();
-        // $("#pwd").css("border-bottom", "none");
-    });
-    $("#pwd").keyup(function () {
+
+
+    $("#userPassword").keyup(function () {
         check_password();
+        check_confirm_password();
     });
-    $("#pwd").focus(function () {
+    $("#userPassword").focus(function () {
         check_password();
+        check_confirm_password();
     });
 
-    $("#cpwd").focusout(function () {
+    $("#userConfirmPassword").focusout(function () {
         // $("#confirm_password_error").hide();
         // $("#cpwd").css("border-bottom", "none");
     });
-    $("#cpwd").keyup(function () {
+    $("#userConfirmPassword").keyup(function () {
         check_confirm_password();
+        check_password();
     });
-    $("#cpwd").focus(function () {
+    $("#userConfirmPassword").keydown(function () {
         check_confirm_password();
+        check_password();
     });
 
 
-    $("#username").focusout(function () {
+    $("#userUsername").focusout(function () {
         // $("#lastname_error").hide();
         // $("#lastname").css("border-bottom", "none");
     });
-    $("#username").keyup(function () {
+    $("#userUsername").keyup(function () {
         check_username();
     });
-    $("#username").focus(function () {
+    $("#userUsername").focus(function () {
         check_username();
     });
 
-    $("#hobbies").focusout(function () {
+    $("#userHobbies").focusout(function () {
         // $("#lastname_error").hide();
         // $("#lastname").css("border-bottom", "none");
     });
-    $("#hobbies").keyup(function () {
+    $("#userHobbies").keyup(function () {
         check_hobbies();
     });
-    $("#hobbies").focus(function () {
+    $("#userHobbies").focus(function () {
         check_hobbies();
     });
 
@@ -138,10 +137,10 @@ $(document).ready(function () {
     });
 
 
-    $("#dob").change(function () {
+    $("#userDOB").change(function () {
         check_date();
     });
-    $("#dob").focusout(function () {
+    $("#userDOB").focusout(function () {
         // $("#dob_error").hide();
     });
 
@@ -161,7 +160,7 @@ $(document).ready(function () {
             minLimit: 1,
             defaultRender: 1,
             afterRender: function () {
-                currentIndex++;
+                ++currentIndex;
 
                 for (let i = 0; i < $(".container-item").length; i++) {
                     let selector = `.container-item[data-index="${i}"]`;
@@ -346,161 +345,161 @@ $(document).ready(function () {
     // FIRSTNAME !!
     function check_name() {
         var pattern = /^[a-zA-Z\s]+$/;
-        var name = $("#firstname").val();
+        var name = $("#userFirstname").val();
         if (name.length == 0) {
             $("#firstname_error").html("Name can not be empty!!").css("color", "red");
             $("#firstname_error").show();
-            $("#firstname").css("border-bottom", "4px solid #F90A0A");
+            $("#userFirstname").css("border-bottom", "4px solid #F90A0A");
             firstname_error = true;
 
         } else if (!pattern.test(name)) {
             $("#firstname_error").html("Should contain only Characters").css("color", "red");
             $("#firstname_error").show();
-            $("#firstname").css("border-bottom", "4px solid #F90A0A");
+            $("#userFirstname").css("border-bottom", "4px solid #F90A0A");
             firstname_error = true;
 
         } else {
             $("#firstname_error").hide();
-            $("#firstname").css("border-bottom", "4px solid #34F458");
+            $("#userFirstname").css("border-bottom", "4px solid #34F458");
         }
     }
 
 
     function check_middlename() {
         var pattern = /^[a-zA-Z\s]+$/;
-        var name = $("#middlename").val();
+        var name = $("#userMiddlename").val();
         if (name.length == 0) {
             $("#middlename_error").html("Name can not be empty!!").css("color", "red");
             $("#middlename_error").show();
-            $("#middlename").css("border-bottom", "4px solid #F90A0A");
+            $("#userMiddlename").css("border-bottom", "4px solid #F90A0A");
             middlename_error = true;
         } else if (!pattern.test(name)) {
             $("#middlename_error").html("Should contain only Characters").css("color", "red");
             $("#middlename_error").show();
-            $("#middlename").css("border-bottom", "4px solid #F90A0A");
+            $("#userMiddlename").css("border-bottom", "4px solid #F90A0A");
             middlename_error = true;
         } else {
             $("#middlename_error").hide();
-            $("#middlename").css("border-bottom", "4px solid #34F458");
+            $("#userMiddlename").css("border-bottom", "4px solid #34F458");
         }
     }
 
 
     function check_lastname() {
         var pattern = /^[a-zA-Z\s]+$/;
-        var name = $("#lastname").val();
+        var name = $("#userLastname").val();
         if (name.length == 0) {
             $("#lastname_error").html("Name can not be empty!!").css("color", "red");
             $("#lastname_error").show();
-            $("#lastname").css("border-bottom", "4px solid #F90A0A");
+            $("#userLastname").css("border-bottom", "4px solid #F90A0A");
             lastname_error = true;
         } else if (!pattern.test(name)) {
             $("#lastname_error").html("Should contain only Characters").css("color", "red");
             $("#lastname_error").show();
-            $("#lastname").css("border-bottom", "4px solid #F90A0A");
+            $("#userLastname").css("border-bottom", "4px solid #F90A0A");
             lastname_error = true;
         } else {
             $("#lastname_error").hide();
-            $("#lastname").css("border-bottom", "4px solid #34F458");
+            $("#userLastname").css("border-bottom", "4px solid #34F458");
         }
     }
 
 
     function check_email() {
         var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        var email = $("#emailid").val();
+        var email = $("#userEmailID").val();
         if (email.length == 0) {
             $("#email_error").html("Email can not be empty!!").css("color", "red");
             $("#email_error").show();
-            $("#emailid").css("border-bottom", "4px solid #F90A0A");
+            $("#userEmailID").css("border-bottom", "4px solid #F90A0A");
             email_error = true;
         } else if (!pattern.test(email)) {
             $("#email_error").html("Invalid Email!!").css("color", "red");
             $("#email_error").show();
-            $("#emailid").css("border-bottom", "4px solid #F90A0A");
+            $("#userEmailID").css("border-bottom", "4px solid #F90A0A");
             email_error = true;
         } else {
             $("#email_error").hide();
-            $("#emailid").css("border-bottom", "4px solid #34F458");
+            $("#userEmailID").css("border-bottom", "4px solid #34F458");
             email_error = false;
         }
 
     }
 
     function check_password() {
-        var password_length = $("#pwd").val().length;
+        var password_length = $("#userPassword").val().length;
         if (password_length < 8) {
             $("#password_error").html("Password should be at least 8 characters!!").css("color", "red");
             $("#password_error").show();
-            $("#pwd").css("border-bottom", "4px solid #F90A0A");
+            $("#userPassword").css("border-bottom", "4px solid #F90A0A");
             password_error = true;
         } else {
             $("#password_error").hide();
-            $("#pwd").css("border-bottom", "4px solid #34F458");
+            $("#userPassword").css("border-bottom", "4px solid #34F458");
             password_error = false;
         }
     }
 
     function check_confirm_password() {
-        var password = $("#pwd").val();
-        var retype_password = $("#cpwd").val();
+        var password = $("#userPassword").val();
+        var retype_password = $("#userConfirmPassword").val();
         if (retype_password === '') {
             $("#confirm_password_error").html("confirm password can not be empty!!").css("color", "red");
             $("#confirm_password_error").show();
-            $("#cpwd").css("border-bottom", "4px solid #F90A0A");
+            $("#userConfirmPassword").css("border-bottom", "4px solid #F90A0A");
             confirm_password_error = true;
         } else if (password !== retype_password) {
             $("#confirm_password_error").html("Passwords Did not Matched").css("color", "red");
             $("#confirm_password_error").show();
-            $("#cpwd").css("border-bottom", "4px solid #F90A0A");
+            $("#userConfirmPassword").css("border-bottom", "4px solid #F90A0A");
             confirm_password_error = true;
         } else if (password.length < 8) {
             $("#confirm_password_error").html("Passwords cannot be less than 8 characters!").css("color", "red");
             $("#confirm_password_error").show();
-            $("#cpwd").css("border-bottom", "4px solid #F90A0A");
+            $("#userConfirmPassword").css("border-bottom", "4px solid #F90A0A");
             confirm_password_error = true;
         } else {
             $("#confirm_password_error").hide();
-            $("#cpwd").css("border-bottom", "4px solid #34F458");
+            $("#userConfirmPassword").css("border-bottom", "4px solid #34F458");
         }
     }
 
     function check_username() {
         var pattern =  /^[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@^_`{|}~]+$/;
-        var name = $("#username").val();
+        var name = $("#userUsername").val();
         if (name.length == 0) {
             $("#username_error").html("Username can not be empty!!").css("color", "red");
             $("#username_error").show();
-            $("#username").css("border-bottom", "4px solid #F90A0A");
+            $("#userUsername").css("border-bottom", "4px solid #F90A0A");
             username_error = true;
         } else if (!pattern.test(name)) {
             $("#username_error").html("Should can contain only Letters, Numbers and Special Characters").css("color", "red");
             $("#username_error").show();
-            $("#username").css("border-bottom", "4px solid #F90A0A");
+            $("#userUsername").css("border-bottom", "4px solid #F90A0A");
             username_error = true;
         } else {
             $("#username_error").hide();
-            $("#username").css("border-bottom", "4px solid #34F458");
+            $("#userUsername").css("border-bottom", "4px solid #34F458");
         }
     }
 
 
     function check_hobbies() {
         var pattern = /^[a-zA-Z\s]+$/;
-        var name = $("#hobbies").val();
+        var name = $("#userHobbies").val();
         if (name.length == 0) {
             $("#hobbies_error").html("Hobbies can not be empty!!").css("color", "red");
             $("#hobbies_error").show();
-            $("#hobbies").css("border-bottom", "4px solid #F90A0A");
+            $("#userHobbies").css("border-bottom", "4px solid #F90A0A");
             lastname_error = true;
         } else if (!pattern.test(name)) {
             $("#hobbies_error").html("Should contain only Characters").css("color", "red");
             $("#hobbies_error").show();
-            $("#hobbies").css("border-bottom", "4px solid #F90A0A");
+            $("#userHobbies").css("border-bottom", "4px solid #F90A0A");
             hobbies_error = true;
         } else {
             $("#hobbies_error").hide();
-            $("#hobbies").css("border-bottom", "4px solid #34F458");
+            $("#userHobbies").css("border-bottom", "4px solid #34F458");
         }
     }
 
@@ -522,7 +521,7 @@ $(document).ready(function () {
         //getting today's date
         var today = new Date().toISOString().split('T')[0];
 
-        var date = $("#dob").val();
+        var date = $("#userDOB").val();
         if (date.length == 0) {
             $("#dob_error").html("Date of Birth can not be empty!!").css("color", "red");
             $("#dob_error").show();

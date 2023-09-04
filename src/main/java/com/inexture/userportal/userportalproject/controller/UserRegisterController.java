@@ -1,35 +1,23 @@
 package com.inexture.userportal.userportalproject.controller;
 
-import javax.servlet.*;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.*;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import com.inexture.userportal.userportalproject.utility.PasswordEncryption;
-import com.inexture.userportal.userportalproject.utility.ValidateOnServerSide;
+import com.inexture.userportal.userportalproject.model.Address;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import com.inexture.userportal.userportalproject.model.Address;
 import com.inexture.userportal.userportalproject.model.User;
 import com.inexture.userportal.userportalproject.services.AddressService;
-import com.inexture.userportal.userportalproject.services.AddressServiceImp;
 import com.inexture.userportal.userportalproject.services.UserService;
-import com.inexture.userportal.userportalproject.services.UserServiceImp;
-import com.inexture.userportal.userportalproject.utility.AgeCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@MultipartConfig
+@ControllerAdvice
 public class UserRegisterController {
 
     private static final Logger logger = LogManager.getLogger("UserRegisterController");
@@ -42,15 +30,14 @@ public class UserRegisterController {
     @RequestMapping(value = "/UserRegister", method = RequestMethod.GET)
     public ModelAndView userRegister(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("registration.jsp");
-        modelAndView.addObject(new User());
+        modelAndView.setViewName("registrationnew.jsp");
+        modelAndView.addObject("userForm", new User());
+        modelAndView.addObject("address", new Address());
         return modelAndView;
     }
 
     @RequestMapping(value = "/UserRegister", method = RequestMethod.POST)
-    @ModelAttribute
-    public ModelAndView userRegister(Model model,
-                                     @ModelAttribute User user)
+    public ModelAndView userRegister(@ModelAttribute("command") User user, BindingResult userResult, @ModelAttribute Address address, BindingResult addressResult, Model model)
 //                                     @RequestParam("houseno[]") String[] houseno,
 //                                     @RequestParam("address[]") String[] street,
 //                                     @RequestParam("landmark[]") String[] landmark,
@@ -59,12 +46,15 @@ public class UserRegisterController {
 //                                     @RequestParam("state[]") String[] state,
 //                                     @RequestParam("country[]") String[] country,
 //                                     @RequestParam("postaladdress[]") String[] postaladdress)
-                                     {
-//
-
+{
         ModelAndView modelAndView = new ModelAndView();
                                          System.out.println("test" + user.toString());
-
+logger.info("the modelattribute object" + user);
+logger.info("the modelattribute object for address" + address);
+logger.info("the model object" + model);
+logger.info("the binding user result object" + userResult);
+logger.info("the binding address result object" + addressResult);
+logger.info("the modelAndView object" + modelAndView);
 //        model.addAttribute();
 //        int id = 0;
 //        List<String> validationErrorsArrayList; // to be shown on registration.jsp
@@ -132,7 +122,8 @@ public class UserRegisterController {
 //        }
 //
 //        //redirect back to the login page after registration
-//        modelAndView.setViewName("login.jsp");
+                                         logger.info("VIEW NAME RIGHT NOW =" + modelAndView.getViewName());
+        modelAndView.setViewName("login.jsp");
         return modelAndView;
     }
 }

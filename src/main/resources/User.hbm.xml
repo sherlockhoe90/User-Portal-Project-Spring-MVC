@@ -8,7 +8,7 @@
         </id>
 
         <property name="userRole" type="string">
-            <column name="role" default="user"></column>
+            <column name="role" default="user"/>
         </property>
         <property name="userFirstname" column="firstname"/>
         <property name="userMiddlename" column="middlename"/>
